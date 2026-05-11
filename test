@@ -1,0 +1,66 @@
+import flet as ft
+
+BOARD_SIZE = 8
+
+
+def create_board(title):
+    board = []
+
+    # Título del tablero
+    board.append(
+        ft.Text(
+            title,
+            size=20,
+            weight=ft.FontWeight.BOLD,
+            color="white"
+        )
+    )
+
+    # Crear filas
+    for row in range(BOARD_SIZE):
+
+        row_cells = []
+
+        for col in range(BOARD_SIZE):
+
+            cell = ft.Container(
+                width=40,
+                height=40,
+                bgcolor="#3b82f6",
+                border=ft.border.all(1, "white"),
+                border_radius=5
+            )
+
+            row_cells.append(cell)
+
+        board.append(
+            ft.Row(
+                row_cells,
+                spacing=2
+            )
+        )
+
+    return ft.Column(board, spacing=2)
+
+
+def main(page: ft.Page):
+
+    page.title = "Battleship"
+    page.bgcolor = "#0f172a"
+    page.padding = 20
+
+    enemy_board = create_board("Enemy Board")
+    player_board = create_board("Your Board")
+
+    page.add(
+        ft.Column(
+            [
+                enemy_board,
+                ft.Divider(height=30, color="transparent"),
+                player_board
+            ]
+        )
+    )
+
+
+ft.app(target=main)

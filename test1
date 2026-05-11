@@ -1,0 +1,108 @@
+import flet as ft
+
+def main(page: ft.Page):
+
+    page.title = "Battleship"
+    page.scroll = "auto"
+    titulo = ft.Text("BATTLESHIP", size=30)
+    texto1 = ft.Text("Tablero Enemigo")
+
+    # filas de el tablero 1
+
+    fila1 = ft.Row()
+    fila2 = ft.Row()
+    fila3 = ft.Row()
+    fila4 = ft.Row()
+    fila5 = ft.Row()
+    fila6 = ft.Row()
+    fila7 = ft.Row()
+    fila8 = ft.Row()
+
+    for i in range(8):
+        boton = ft.ElevatedButton(" ", width=40, height=40)
+        fila1.controls.append(boton)
+
+    for i in range(8):
+        boton = ft.ElevatedButton(" ", width=40, height=40)
+        fila2.controls.append(boton)
+
+    for i in range(8):
+        boton = ft.ElevatedButton(" ", width=40, height=40)
+        fila3.controls.append(boton)
+
+    for i in range(8):
+        boton = ft.ElevatedButton(" ", width=40, height=40)
+        fila4.controls.append(boton)
+
+    for i in range(8):
+        boton = ft.ElevatedButton(" ", width=40, height=40)
+        fila5.controls.append(boton)
+
+    for i in range(8):
+        boton = ft.ElevatedButton(" ", width=40, height=40)
+        fila6.controls.append(boton)
+
+    for i in range(8):
+        boton = ft.ElevatedButton(" ", width=40, height=40)
+        fila7.controls.append(boton)
+
+    for i in range(8):
+        boton = ft.ElevatedButton(" ", width=40, height=40)
+        fila8.controls.append(boton)
+
+    # segundo tablero
+
+    texto2 = ft.Text("Tu Tablero")
+
+    fila9 = ft.Row()
+    fila10 = ft.Row()
+    fila11 = ft.Row()
+    fila12 = ft.Row()
+    fila13 = ft.Row()
+    fila14 = ft.Row()
+    fila15 = ft.Row()
+    fila16 = ft.Row()
+
+    for i in range(8):
+        boton = ft.ElevatedButton(" ", width=40, height=40)
+        fila9.controls.append(boton)
+
+    for i in range(8):
+        boton = ft.ElevatedButton(" ", width=40, height=40)
+        fila10.controls.append(boton)
+
+    for i in range(8):
+        boton = ft.ElevatedButton(" ", width=40, height=40)
+        fila11.controls.append(boton)
+
+    for i in range(8):
+        boton = ft.ElevatedButton(" ", width=40, height=40)
+        fila12.controls.append(boton)
+
+    for i in range(8):
+        boton = ft.ElevatedButton(" ", width=40, height=40)
+        fila13.controls.append(boton)
+
+    for i in range(8):
+        boton = ft.ElevatedButton(" ", width=40, height=40)
+        fila14.controls.append(boton)
+
+    for i in range(8):
+        boton = ft.ElevatedButton(" ", width=40, height=40)
+        fila15.controls.append(boton)
+
+    for i in range(8):
+        boton = ft.ElevatedButton(" ", width=40, height=40)
+        fila16.controls.append(boton)
+    
+    def changeTheme(e):
+        if themeSwitch.value == True:
+            page.theme_mode = ft.ThemeMode.LIGHT
+        else:
+            page.theme_mode = ft.ThemeMode.DARK
+    
+    themeSwitch = ft.Switch(value=True, on_change=changeTheme)
+
+    page.add(titulo, themeSwitch, texto1, fila1, fila2, fila3, fila4, fila5, fila6, fila7, fila8, texto2, fila9, fila10, fila11,fila12, fila13, fila14, fila15, fila16)
+
+ft.app(target=main)
